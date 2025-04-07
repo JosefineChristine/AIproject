@@ -64,6 +64,7 @@ public class OpenAiService {
     public OpenAiService() {
         this.client = WebClient.create();
     }
+
     //Use this constructor for testing, to inject a mock client
     public OpenAiService(WebClient client) {
         this.client = client;
