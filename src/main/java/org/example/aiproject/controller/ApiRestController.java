@@ -3,6 +3,7 @@ package org.example.aiproject.controller;
 import org.example.aiproject.model.Offer;
 import org.example.aiproject.service.APIcallService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
@@ -10,6 +11,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class ApiRestController {
 
     //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
