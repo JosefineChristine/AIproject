@@ -1,16 +1,25 @@
 package org.example.aiproject.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private int id;
     private String description;
     private String ean;
 
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
+    public Product(int id, String description, String ean) {
+        this.id = id;
+        this.description = description;
+        this.ean = ean;
+    }
+
+    //***GETTER & SETTER***---------------------------------------------------------------------------------------------
     public int getId() {
         return id;
     }
@@ -35,6 +44,6 @@ public class Product {
         this.ean = ean;
     }
 
-
+    //***END***---------------------------------------------------------------------------------------------------------
 }
 

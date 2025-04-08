@@ -17,7 +17,6 @@ public class APIcallService {
     //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private final WebClient webClient;
 
-    //TODO skal denne bruges til kald af API?
     @Value("${API_KEY_SALLING}")
     private String API_KEY;
 
@@ -35,6 +34,20 @@ public class APIcallService {
                 .retrieve()
                 .bodyToMono(String.class);
         return hello;
+    }
+
+    //TODO *return type?
+    public String fetchClearanceForSpecificStore(int id) {
+        return webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/v1/food-waste/{id}")
+                        .queryParam("id", id)
+                        .queryParam("limit", 3)
+                        .build())
+                .header("X-Api-Key", API_KEY) //check if works here?
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
     }
 
     public String fetchHello() {

@@ -1,13 +1,17 @@
 package org.example.aiproject.model;
 
-import jakarta.persistence.Id;
 
 public class Store {
 
     //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
-    @Id
     private String id;
     private String name;
+
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
+    public Store(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     //***GETTER& SETTER***----------------------------------------------------------------------------------------------
     public String getId() {
@@ -18,7 +22,6 @@ public class Store {
         this.id = id;
     }
 
-
     public String getName() {
         return name;
     }
@@ -26,7 +29,6 @@ public class Store {
     public void setName(String name) {
         this.name = name;
     }
-
 
 }
 
