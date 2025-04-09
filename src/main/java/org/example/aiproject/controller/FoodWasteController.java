@@ -23,7 +23,6 @@ public class FoodWasteController {
     }
 
     //***GET MAPPING***-------------------------------------------------------------------------------------------------
-
     @GetMapping("/stores")
     public List<Store> getStores() {
         return foodWasteService.fetchStores();
