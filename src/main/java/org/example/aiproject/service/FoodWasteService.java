@@ -44,6 +44,17 @@ public class FoodWasteService {
                 .bodyToMono(Store.class);
     }
 
+//    public String fetchStoreIdByName(String name) {
+//        List<Store> stores = fetchStores();
+//        Store selectedStore = null;
+//        for(Store store : stores){
+//            if(store.getName().equalsIgnoreCase(name)){
+//               selectedStore = store;
+//            }
+//        }
+//        return selectedStore.getId();
+//    }
+
     public List<Store> fetchStores() { // virker
         Mono<List<Store>> storesMono = webClient
                 .get()

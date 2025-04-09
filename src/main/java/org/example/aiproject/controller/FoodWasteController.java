@@ -17,6 +17,7 @@ public class FoodWasteController {
     //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private final FoodWasteService foodWasteService;
 
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public FoodWasteController(FoodWasteService foodWasteService) {
         this.foodWasteService = foodWasteService;
     }
@@ -25,6 +26,11 @@ public class FoodWasteController {
     public List<Store> getStores() {
         return foodWasteService.fetchStores();
     }
+
+//    @GetMapping("/store/{name}")
+//    public String getStoreIdByName(@PathVariable String name) {
+//        return foodWasteService.fetchStoreIdByIdName(name);
+//    }
 
     @GetMapping("/food-waste/{id}")
     public Mono<List<Clearance>> getFoodWasteByStore(@PathVariable String id) {

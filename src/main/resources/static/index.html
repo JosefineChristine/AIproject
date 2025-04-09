@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="CSS/style.css">
     <script src="/js/script.js" defer></script>
 </head>
+
 <body>
-<h1>Vælg en butik for at se madspild</h1>
+<h1>Choose a store</h1>
 
 <!-- Dropdown menu for butikker -->
 <!-- <label for="storeSelect">Vælg butik:</label> -->
-<select id="storeSelect">
-    <option value="">Vælg en butik</option>
-</select>
+<form action="/your-action-url" method="post">
+    <select id="storeSelect" name="selectedStore">
+        <option value="">Choose a store</option>
+    </select>
+    <button type="submit" class="btn" id="save-button">Submit</button>
+</form>
 
 <!-- Container for at vise madspild data -->
 <div id="foodWasteData" style="margin-top: 20px;"></div>
