@@ -9,7 +9,6 @@ public class OpenAiController {
 
     private final OpenAiService openAiService;
 
-    //TODO add list of ingredients to prompt
     final static String SYSTEM_MESSAGE = "Make recipes from the following ingredients. " +
             "You can add other ingredients to make good recipes.";
 
