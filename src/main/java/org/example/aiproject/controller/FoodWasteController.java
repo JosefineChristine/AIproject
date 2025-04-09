@@ -22,27 +22,18 @@ public class FoodWasteController {
         this.foodWasteService = foodWasteService;
     }
 
+    //***GET MAPPING***-------------------------------------------------------------------------------------------------
+
     @GetMapping("/stores")
     public List<Store> getStores() {
         return foodWasteService.fetchStores();
     }
-
-//    @GetMapping("/store/{name}")
-//    public String getStoreIdByName(@PathVariable String name) {
-//        return foodWasteService.fetchStoreIdByIdName(name);
-//    }
 
     @GetMapping("/food-waste/{id}")
     public Mono<List<Clearance>> getFoodWasteByStore(@PathVariable String id) {
         return foodWasteService.fetchFoodWasteByStoreId(id);
     }
 
-//    @PostMapping("/food-waste/{id}")
-//    public Mono<List<Clearance>> getFoodWasteByStore(@PathVariable String id) {
-//        Mono<List<Clearance>> res = foodWasteService.fetchFoodWasteByStoreId(id);
-//        return res;
-//    }
-
-
+    //***END***---------------------------------------------------------------------------------------------------------
 }
 

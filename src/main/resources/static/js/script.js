@@ -1,52 +1,45 @@
 
-
-
 //***FUNCTIONS***-------------------------------------------------------------------------------------------------------
-// Hent butikkernes data fra backend
 async function fetchStores() {
-    const response = await fetch("/salling/stores");
-    const stores = await response.json();
+    try {
+        const response = await fetch("/salling/stores");
+        const stores = await response.json();
 
-    const storeSelect = document.getElementById('storeSelect');
+        const storeSelect = document.getElementById('storeSelect');
 
-    // Populer dropdown med butikker
-    stores.forEach(store => {
-        const option = document.createElement('option');
-        option.value = store.id;
-        option.textContent = store.name;
-        storeSelect.appendChild(option);
-    });
+        stores.forEach(store => {
+            const option = document.createElement('option');
+            option.value = store.id;         // Brug butik ID som value
+            option.textContent = store.name; // Vis butik navn
+            storeSelect.appendChild(option);
+
+        });
+    } catch (error) {
+        console.error("Kunne ikke hente butikker:", error);
+    }
 }
 
-
-//form submission for at lave update:
-//**
+fetchStores();
 
 
+//----------------------------------------------------------------------------------------------------------------------
+// When formula is submitted, redirect to /food-waste/{id}
 document.getElementById('storeForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Stop standard submit
 
-    const select = document.getElementById('storeSelect');
-    const storeId = select.value;
+    const storeId = document.getElementById('storeSelect').value;
 
     if (storeId) {
-        // Redirect to the food-waste page with the selected store ID
-        window.location.href = "/food-waste/" + storeId;
+        // Redirect to the food waste data page for the selected store
+        window.location.href = `foodWasteForSpecificStore.html?storeId=${storeId}`;
     } else {
-        alert("Vælg venligst en butik før du fortsætter."); // Optional: validation
+        alert("Choose a store before you submit.");
     }
 });
 
-/*
-
-async function fetchFoodWasteById(){
-    const response = await fetch("/salling/food-waste/")
-    const
-
-}
-
- */
+//----------------------------------------------------------------------------------------------------------------------
+// Fetch food waste by store ID
 
 
-// Initialiser ved at hente butikkernes data
-fetchStores();
+
+
