@@ -16,8 +16,8 @@ public class FoodWasteService {
 
     //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private final WebClient webClient;
-    @Value("${app.api-key}")
-    private String API_KEY;
+    @Value("${app.api-key-salling}")
+    private String API_KEY_SALLING;
 
     //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public FoodWasteService(WebClient webClient) {
@@ -29,7 +29,7 @@ public class FoodWasteService {
         return webClient
                 .get()
                 .uri("https://api.sallinggroup.com/v1/food-waste/"+ id)
-                .header("Authorization", "Bearer " + API_KEY)
+                .header("Authorization", "Bearer " + API_KEY_SALLING)
                 .retrieve()
                 .bodyToMono(StoreClearances.class)
                 .map(StoreClearances::getClearances);
@@ -39,7 +39,7 @@ public class FoodWasteService {
         return webClient
                 .get()
                 .uri("https://api.sallinggroup.com/v2/stores/" + id)
-                .header("Authorization", "Bearer " + API_KEY)
+                .header("Authorization", "Bearer " + API_KEY_SALLING)
                 .retrieve()
                 .bodyToMono(Store.class);
     }
@@ -59,7 +59,7 @@ public class FoodWasteService {
         Mono<List<Store>> storesMono = webClient
                 .get()
                 .uri("https://api.sallinggroup.com/v2/stores")
-                .header("Authorization", "Bearer " + API_KEY)
+                .header("Authorization", "Bearer " + API_KEY_SALLING)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<Store>>() {});
 
