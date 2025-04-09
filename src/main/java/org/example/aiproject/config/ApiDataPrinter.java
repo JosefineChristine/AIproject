@@ -23,5 +23,4 @@ public class ApiDataPrinter implements CommandLineRunner {
 
     }
 
-
 }
