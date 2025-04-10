@@ -49,4 +49,9 @@ if (storeId) {
     document.getElementById("storeNameHeader").textContent = "Ingen butik valgt.";
 }
 
+
+
+
+
+
 //**END***--------------------------------------------------------------------------------------------------------------
