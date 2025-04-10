@@ -33,9 +33,11 @@ public class FoodWasteService {
                 .retrieve()
                 .bodyToMono(StoreClearances.class)
                 .map(StoreClearances::getClearances);
+
+        // TODO if(stock == 0) -> don't put it in the list
     }
 
-    public Mono<Store> fetchStoreById(String id) { // virker
+    public Mono<Store> fetchStoreById(String id) {
         return webClient
                 .get()
                 .uri("https://api.sallinggroup.com/v2/stores/" + id)
@@ -44,28 +46,13 @@ public class FoodWasteService {
                 .bodyToMono(Store.class);
     }
 
-//    public String fetchStoreIdByName(String name) {
-//        List<Store> stores = fetchStores();
-//        Store selectedStore = null;
-//        for(Store store : stores){
-//            if(store.getName().equalsIgnoreCase(name)){
-//               selectedStore = store;
-//            }
-//        }
-//        return selectedStore.getId();
-//    }
-
-    public List<Store> fetchStores() { // virker
-        Mono<List<Store>> storesMono = webClient
+    public Mono<List<Store>> fetchStores() { // virker
+        return webClient
                 .get()
                 .uri("https://api.sallinggroup.com/v2/stores")
                 .header("Authorization", "Bearer " + API_KEY_SALLING)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<List<Store>>() {});
-
-        List<Store> storeList = storesMono.block();
-
-        return storeList;
     }
 
     //***END***---------------------------------------------------------------------------------------------------------
