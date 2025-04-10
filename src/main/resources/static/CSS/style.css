@@ -64,3 +64,19 @@ h1 {
     max-height: none; /* Do not limit height */
     overflow: visible; /* Allow the table to grow as necessary */
 }
+
+#getRecipesBtn {
+    background-color: #6a4c9c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#getRecipesBtn:hover {
+    background-color: #5e33a2;
+}
