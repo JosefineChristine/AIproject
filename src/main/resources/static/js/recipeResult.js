@@ -23,10 +23,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("Fejl ved hentning af opskrifter:", error);
                 alert("Kunne ikke hente opskrifter.");
             });
+
+        const goBackButton = document.getElementById("getRecipesBtn");
+        if (goBackButton) {
+            goBackButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                window.history.back();
+            });
+        }
+
+
     } else {
         console.error("Ingen butik valgt.");
         alert("Ingen butik valgt. Kan ikke hente opskrifter.");
     }
 });
+
 
 
