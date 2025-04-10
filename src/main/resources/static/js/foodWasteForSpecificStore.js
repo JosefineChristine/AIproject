@@ -49,9 +49,41 @@ if (storeId) {
     document.getElementById("storeNameHeader").textContent = "Ingen butik valgt.";
 }
 
+//***FETCH FOOD-WASTE MAKE STRING FROM JSON***--------------------------------------------------------------------------
+async function getFoodWasteAsString(storeId) {
+    if (!storeId) {
+        return JSON.stringify({ error: "Ingen butik valgt." });
+    }
+    try {
+        const response = await fetch(`/salling/food-waste/${storeId}`);
+        const foodWaste = await response.json();
+        return JSON.stringify(foodWaste); // This is your JSON string
+    } catch (error) {
+        console.error("Fejl:", error);
+        return JSON.stringify({ error: "Fejl ved hentning af data." });
+    }
+}
 
+//----------------------------------------------------------------------------------------------------------------------
+document.getElementById("getRecipesBtn").addEventListener("click", async () => {
+    const storeId = new URLSearchParams(window.location.search).get("storeId");
 
+    const foodWasteString = await getFoodWasteAsString(storeId);
 
+    try {
+        const response = await fetch(`/api/recipes?foodWaste=${encodeURIComponent(foodWasteString)}`);
+        const result = await response.json();
+
+        // Store response for next page
+        localStorage.setItem("recipesResult", JSON.stringify(result));
+
+        // Redirect to display page
+        window.location.href = "/recipesResult.html";
+    } catch (error) {
+        console.error("Fejl ved hentning af opskrifter:", error);
+        alert("Kunne ikke hente opskrifter.");
+    }
+});
 
 
 //**END***--------------------------------------------------------------------------------------------------------------
