@@ -11,7 +11,7 @@ html, body {
 body {
     font-family: Arial, sans-serif;
     background-color: #f1e6f7;
-    color: #5e33a2;
+    color: #6a4c9c;
     display: block; /* Reset flex to normal block */
 }
 
@@ -22,6 +22,7 @@ h1 {
     margin: 20px;
     text-align: center;
     background-color: #fff;
+    box-shadow: 0 2px 5px rgba(249, 79, 255, 0.37);
     padding: 10px;
 }
 
@@ -78,5 +79,8 @@ h1 {
 }
 
 #getRecipesBtn:hover {
-    background-color: #5e33a2;
+    background-color: #6a4c9c;
 }
+
+
+
