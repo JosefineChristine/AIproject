@@ -64,26 +64,21 @@ async function getFoodWasteAsString(storeId) {
     }
 }
 
-//----------------------------------------------------------------------------------------------------------------------
+//***FETCH RESPONSE FROM CHAT***----------------------------------------------------------------------------------------
+//--- Button click: Get recipes based on food waste ---
 document.getElementById("getRecipesBtn").addEventListener("click", async () => {
-    const storeId = new URLSearchParams(window.location.search).get("storeId");
-
-    const foodWasteString = await getFoodWasteAsString(storeId);
+    if (!storeId) return alert("Ingen butik valgt.");
 
     try {
-        const response = await fetch(`/api/recipes?foodWaste=${encodeURIComponent(foodWasteString)}`);
-        const result = await response.json();
+        // Save storeId to localStorage
+        localStorage.setItem("storeId", storeId);
 
-        // Store response for next page
-        localStorage.setItem("recipesResult", JSON.stringify(result));
-
-        // Redirect to display page
+        // Redirect to recipesResult.html
         window.location.href = "/recipesResult.html";
-    } catch (error) {
-        console.error("Fejl ved hentning af opskrifter:", error);
+    } catch (err) {
+        console.error("Fejl ved redigering af opskrifter:", err);
         alert("Kunne ikke hente opskrifter.");
     }
 });
-
 
 //**END***--------------------------------------------------------------------------------------------------------------
