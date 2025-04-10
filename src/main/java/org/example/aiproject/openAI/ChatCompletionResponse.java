@@ -10,6 +10,8 @@ import java.util.List;
 
 @Data
 public class ChatCompletionResponse {
+
+
     private String id;
     private String object;
     private long created;

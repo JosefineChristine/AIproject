@@ -1,3 +1,4 @@
+//***GET FOOD LIST FROM SPECIFIC STORE***-------------------------------------------------------------------------------
 // Get the store ID from the URL path
 const storeId = new URLSearchParams(window.location.search).get("storeId");
 
@@ -32,3 +33,20 @@ if (!storeId) {
             foodWasteTable.innerHTML = "<tr><td colspan='2'>Fejl ved hentning af data.</td></tr>";
         });
 }
+
+//***FETCH STORE NAME TO PRINT ON HTML PAGE***--------------------------------------------------------------------------
+if (storeId) {
+    fetch(`/salling/stores/${storeId}`)
+        .then(res => res.json())
+        .then(store => {
+            document.getElementById("storeNameHeader").textContent = `Madspild i butikken: ${store.name}`;
+        })
+        .catch(err => {
+            console.error("Kunne ikke hente butiksnavn:", err);
+            document.getElementById("storeNameHeader").textContent = "Butik ikke fundet";
+        });
+} else {
+    document.getElementById("storeNameHeader").textContent = "Ingen butik valgt.";
+}
+
+//**END***--------------------------------------------------------------------------------------------------------------
