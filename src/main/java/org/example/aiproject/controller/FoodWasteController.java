@@ -1,5 +1,6 @@
 package org.example.aiproject.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.example.aiproject.model.Clearance;
 import org.example.aiproject.model.Store;
 import org.example.aiproject.service.FoodWasteService;
