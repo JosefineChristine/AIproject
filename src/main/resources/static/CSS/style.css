@@ -24,6 +24,7 @@ h1 {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(249, 79, 255, 0.37);
     padding: 10px;
+    border-radius: 8px;
 }
 
 /* Table styling */
@@ -75,12 +76,52 @@ h1 {
     border-radius: 8px;
     cursor: pointer;
     margin-bottom: 20px;
+    margin-left: 20px;
     transition: background-color 0.3s ease;
 }
 
 #getRecipesBtn:hover {
     background-color: #6a4c9c;
 }
+
+#purpleBtn {
+    background-color: #6a4c9c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#purpleBtn:hover {
+    background-color: #6a4c9c;
+}
+
+#storeSelect {
+    background-color: #fff;
+    color: #6a4c9c;
+    border: 1px solid #ddd;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    min-width: 75px; /* Ensure a minimum width */
+    box-sizing: border-box; /* Prevent padding from increasing the width */
+}
+
+#storeSelect:hover {
+    background-color: #f1e6f7;
+    border-color: #6a4c9c;
+}
+
+
 
 
 
