@@ -4,6 +4,8 @@ const storeId = new URLSearchParams(window.location.search).get("storeId");
 
 const foodWasteTable = document.getElementById("foodWasteTable").getElementsByTagName("tbody")[0];
 
+goBack();
+
 if (!storeId) {
     foodWasteTable.innerHTML = "<tr><td colspan='2'>Ingen butik valgt.</td></tr>";
 } else {
@@ -80,5 +82,15 @@ document.getElementById("getRecipesBtn").addEventListener("click", async () => {
         alert("Kunne ikke hente opskrifter.");
     }
 });
+
+function goBack() {
+    // Går tilbage til den forrige side
+    document.getElementById("purpleBtn").addEventListener("click", (event) => {
+        event.preventDefault();
+        window.history.back();
+    });
+}
+
+
 
 //**END***--------------------------------------------------------------------------------------------------------------

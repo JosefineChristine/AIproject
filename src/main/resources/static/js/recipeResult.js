@@ -1,6 +1,7 @@
 //***FETCH STORE NAME TO PRINT ON HTML PAGE***--------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------------------------------------
+
 document.addEventListener("DOMContentLoaded", () => {
     // Get storeId from localStorage (which was saved on the previous page)
     const storeId = localStorage.getItem("storeId");
