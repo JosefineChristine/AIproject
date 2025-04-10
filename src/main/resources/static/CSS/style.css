@@ -1,20 +1,66 @@
+/* Ensure the page grows naturally */
+html, body {
+    height: 100%; /* Allow the page to take full height */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto; /* Make sure we can scroll if content overflows */
+}
+
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f1e6f7;
     color: #5e33a2;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    box-sizing: border-box;
+    display: block; /* Reset flex to normal block */
 }
 
+/* Header styling */
 h1 {
     color: #6a4c9c;
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin: 20px;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
 }
 
+/* Table styling */
+#foodWasteTable {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Table header styling */
+#foodWasteTable th, #foodWasteTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#foodWasteTable th {
+    background-color: #f1f1f1;
+}
+
+/* Row alternating background color */
+#foodWasteTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#foodWasteTable tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Prevent cutting off content in table cells */
+#foodWasteTable td {
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Prevent overflow of text */
+}
+
+/* Wrapper for the table to handle overflow */
+#foodWasteTableWrapper {
+    max-height: none; /* Do not limit height */
+    overflow: visible; /* Allow the table to grow as necessary */
+}

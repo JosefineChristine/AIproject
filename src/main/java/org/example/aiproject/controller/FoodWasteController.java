@@ -24,8 +24,13 @@ public class FoodWasteController {
 
     //***GET MAPPING***-------------------------------------------------------------------------------------------------
     @GetMapping("/stores")
-    public List<Store> getStores() {
+    public Mono<List<Store>> getStores() {
         return foodWasteService.fetchStores();
+    }
+
+    @GetMapping("/stores/{id}")
+    public Mono<Store> getStores(@PathVariable String id) {
+        return foodWasteService.fetchStoreById(id);
     }
 
     @GetMapping("/food-waste/{id}")

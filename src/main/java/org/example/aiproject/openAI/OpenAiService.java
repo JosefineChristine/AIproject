@@ -27,6 +27,7 @@ understand what's going on in this code.
 @Service
 public class OpenAiService {
 
+    //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     public static final Logger logger = LoggerFactory.getLogger(OpenAiService.class);
 
     @Value("${app.api-key}")
@@ -58,6 +59,7 @@ public class OpenAiService {
 
     private WebClient webclient;
 
+    //***CONSTRUCTOR***-------------------------------------------------------------------------------------------------
     public OpenAiService() {
         this.webclient = WebClient.create();
     }
@@ -67,6 +69,7 @@ public class OpenAiService {
         this.webclient = webclient;
     }
 
+    //***METHODS***-----------------------------------------------------------------------------------------------------
     public MyResponse makeRequest(String userPrompt, String _systemMessage) {
 
         ChatCompletionRequest requestDto = new ChatCompletionRequest();
@@ -117,4 +120,6 @@ public class OpenAiService {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, err);
         }
     }
+
+    //***END***---------------------------------------------------------------------------------------------------------
 }

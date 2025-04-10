@@ -14,6 +14,7 @@ import java.util.List;
 @Data
 public class ChatCompletionRequest {
 
+    //***ATTRIBUTES***--------------------------------------------------------------------------------------------------
     private String model;
     private List<Message> messages = new ArrayList<>();
     private double temperature;
@@ -22,6 +23,7 @@ public class ChatCompletionRequest {
     private double frequency_penalty;
     private double presence_penalty;
 
+    //***CONSTRUCTORS***------------------------------------------------------------------------------------------------
     @Data
     public static class Message { //  In Java, declaring a static inner class (like Message inside your ChatCompletionRequest) means that the inner class doesn't hold an implicit reference to an instance of the outer class
         private String role;
@@ -32,4 +34,6 @@ public class ChatCompletionRequest {
             this.content = content;
         }
     }
+
+    //***END***---------------------------------------------------------------------------------------------------------
 }
