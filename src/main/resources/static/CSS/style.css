@@ -122,6 +122,72 @@ h1 {
 }
 
 
+/* CHAT SPECIFIC -----------------------------------------------------------------------------------------------------*/
+.chat-style-wrapper {
+    background-color: #343541;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chat-style-wrapper #storeNameHeader {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #6a4c9c;
+}
+
+.chat-style-wrapper .chatContainer {
+    width: 100%;
+    max-width: 900px;
+}
+
+.chat-style-wrapper #recipeResult {
+    background-color: #444654;
+    color: #ececf1;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    white-space: pre-wrap;
+    margin: 0 auto;
+}
+
+.chat-style-wrapper #recipeResult code {
+    background: #202123;
+    color: #10a37f;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.chat-style-wrapper #recipeResult pre {
+    background: #202123;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.chat-style-wrapper .btn {
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: #10a37f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.chat-style-wrapper .btn:hover {
+    background-color: #0e8c6a;
+}
+
+
+
 
 
 

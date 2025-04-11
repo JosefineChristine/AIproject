@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -11,11 +12,117 @@
 <body>
 <h1 id="storeNameHeader">Opskrifter baseret på madspild i butikken</h1>
 <div id="recipesContainer"></div>
-<div id="recipeResult" style="margin-left: 20px;">Indlæser opskrifter...</div> <!-- Ensure this element exists -->
+<div id="recipeResult" style="margin-left: 20px;">Indlæser opskrifter...</div>  Ensure this element exists
 
 <br>
 <button id="getRecipesBtn" class="btn">Tilbage</button>
 
 </body>
 
+</html>
+
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+    Include Marked.js for Markdown support
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    JavaScript after DOM is ready
+    <script src="/js/recipeResult.js" defer></script>
+
+    <style>
+        body {
+            background-color: #343541;
+            color: #ececf1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        #storeNameHeader {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #recipeResult {
+            background-color: #444654;
+            color: #ececf1;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 800px;
+            font-size: 16px;
+            line-height: 1.6;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #recipeResult code {
+            background: #202123;
+            color: #10a37f;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        #recipeResult pre {
+            background: #202123;
+            padding: 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 16px;
+            background-color: #10a37f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0e8c6a;
+        }
+    </style>
+</head>
+
+<body>
+<h1 id="storeNameHeader">Opskrifter baseret på madspild i butikken</h1>
+
+<div id="recipesContainer"></div>
+
+<div id="recipeResult">Indlæser opskrifter...</div>
+
+<br>
+<button id="getRecipesBtn" class="btn">Tilbage</button>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/js/recipeResult.js" defer></script>
+</head>
+
+<body>
+<div class="chat-style-wrapper">
+    <div class="chatContainer">
+        <h1 id="storeNameHeader">Opskrifter baseret på madspild i butikken</h1>
+        <div id="recipeResult">Indlæser pakke-opskrifter...</div>
+        <button id="getRecipesBtn" class="btn">Tilbage</button>
+    </div>
+</div>
+</body>
 </html>
