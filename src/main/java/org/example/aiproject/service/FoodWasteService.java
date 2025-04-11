@@ -10,6 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FoodWasteService {
@@ -25,17 +26,30 @@ public class FoodWasteService {
     }
 
     //***METHODS***-----------------------------------------------------------------------------------------------------
-    public Mono<List<Clearance>> fetchFoodWasteByStoreId(String id) { // virker
+//    //fetchFoodWasteByStoreId() uden at filtrere stock==0 fra
+//    public Mono<List<Clearance>> fetchFoodWasteByStoreId(String id) { // virker
+//        return webClient
+//                .get()
+//                .uri("https://api.sallinggroup.com/v1/food-waste/"+ id)
+//                .header("Authorization", "Bearer " + API_KEY_SALLING)
+//                .retrieve()
+//                .bodyToMono(StoreClearances.class)
+//                .map(StoreClearances::getClearances);
+//    }
+
+    public Mono<List<Clearance>> fetchFoodWasteByStoreId(String id) {
         return webClient
                 .get()
-                .uri("https://api.sallinggroup.com/v1/food-waste/"+ id)
+                .uri("https://api.sallinggroup.com/v1/food-waste/" + id)
                 .header("Authorization", "Bearer " + API_KEY_SALLING)
                 .retrieve()
                 .bodyToMono(StoreClearances.class)
-                .map(StoreClearances::getClearances);
-
-        // TODO if(stock == 0) -> don't put it in the list
+                .map(StoreClearances::getClearances)
+                .map(clearances -> clearances.stream()
+                        .filter(clearance -> clearance.getOffer().getStock() > 0)
+                        .collect(Collectors.toList()));
     }
+
 
     public Mono<Store> fetchStoreById(String id) {
         return webClient
