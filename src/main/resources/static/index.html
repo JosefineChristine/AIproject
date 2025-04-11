@@ -9,20 +9,25 @@
 </head>
 
 <body>
-<h1>Vælg en butik</h1>
+<div class="main-container">
+    <h1>Vælg en butik</h1>
 
-<!-- Dropdown menu for butikker -->
-<!-- <label for="storeSelect">Vælg butik:</label> -->
-<form id="storeForm">
-    <select id="storeSelect" name="selectedStore">
-        <option value="">Vælg en butik</option>
-    </select>
-    <button id="getRecipesBtn" type="submit">Se madspild</button>
-</form>
+    <p>Velkommen til vores hjemmeside, hvor vi arbejder på at reducere madspild i supermarkeder. Vi tilbyder en løsning, der gør det muligt at skabe måltidspakker baseret på ingredienser, der nærmer sig deres udløbsdato. Vores opskrifter er designet til at maksimere brugen af disse ingredienser og minimere madspild, samtidig med at vi skaber lette, praktiske og lækre måltider, der kan pakkes som måltidspakker klar til salg i supermarkedet.</p>
 
-<!-- Container for at vise madspild data -->
-<div id="foodWasteData" style="margin-top: 20px;"></div>
+    <p>På vores side kan du finde opskrifter, der er specielt designet til at bruge de ingredienser, der er tættere på udløbsdatoen. Vores mål er at hjælpe supermarkeder med at tilbyde friske måltidspakker, samtidig med at vi reducerer madspild. Gennem enkle, lette og praktiske opskrifter, som er nemme at forberede, kan du hjælpe med at gøre en forskel for både miljøet og økonomien.</p>
 
+    <p>Udforsk vores opskrifter, og hjælp os med at skabe en mere bæredygtig fremtid!</p>
+
+    <form id="storeForm" class="center-form">
+        <select id="storeSelect" name="selectedStore">
+            <option value="">Vælg en butik</option>
+        </select>
+        <button id="getRecipesBtn" type="submit">Se madspild</button>
+    </form>
+
+    <!-- Container for at vise madspild data -->
+    <div id="foodWasteData" style="margin-top: 20px;"></div>
+</div>
 </body>
 </html>
 
